@@ -1,0 +1,68 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body {
+  background-color: white;
+  color: black;
+}
+.nav-bar {
+  background-color: #9AB17A;
+}
+.logo {
+  color: #d75d00;
+  font-weight: bold;
+}
+.dropdown, .collapse-dropdown {
+  border: 1px solid rgb(255, 255, 255);
+  outline: none;
+  border-radius: .2rem;
+  padding: .5rem 1rem;
+  background-color: #C3CC9B;
+}
+.food-item {
+  width: 250px;
+  height: 350px;
+  cursor: pointer;
+  transition: .2s;
+}
+.summerUi {
+  width: 250px;
+  height: 350px;
+  background-color: #9ab17a2d;
+}
+.food-item:hover {
+  transform: scale(1.02);
+}
+.food-img {
+  width: 100%;
+  height: 200px;
+}
+.food-discription, .food-category {
+  font-size: 12px;
+}
+.food-catgory-name {
+  font-size: 16px;
+}
+.food-discription {
+  font-size: 12px;
+}
+.toggle-one {
+  background-color: rgba(0, 0, 0, 0.688);
+  padding: .5rem;
+  position: fixed;
+  bottom: 5%;
+  right: 2%;
+  cursor: pointer;
+  border-radius: .5rem;
+}
+.mode-img {
+  width: 30px;
+}
+
+.dark-mode {
+  background-color: black;
+  color: #C3CC9B;
+}

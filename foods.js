@@ -25,8 +25,9 @@ function getFoodData(foodItems) {
   const container = document.getElementById("container");
   const filterByCategory = document.getElementById("foodItemsDropdown");
   const filterByPrice = document.getElementById("foodPriceDropdown");
-  const filterByCategoryMobile = document.getElementById("foodItemsDropdownMobile");
-  const filterByPriceMobile = document.getElementById("foodPriceDropdownMobile");
+  const searchForm = document.getElementById("searchForm");
+  const searchInput = document.getElementById("searchInput");
+
   let categoryValue = "all";
   let priceValue = "all";
   let searchValue = "";
@@ -39,6 +40,9 @@ function getFoodData(foodItems) {
     if(priceValue !== "all") {
       const [minPrice, maxPrice] = priceValue.split("-").map(Number);
       filteredItems = filteredItems.filter(item => item.price >= minPrice && item.price <= maxPrice);
+    }
+    if(searchValue !== "") {
+      filteredItems = filteredItems.filter(item => item.name.toLowerCase().includes(searchValue) || item.description.toLowerCase().includes(searchValue) || item.category.toLowerCase().includes(searchValue));
     }
 
     if(filteredItems.length === 0) {
@@ -60,23 +64,21 @@ function getFoodData(foodItems) {
 
   filterByCategory.addEventListener("change",(e)=> {
     categoryValue = e.target.value;
-    filterByCategoryMobile.value = categoryValue;
+    filterByCategory.value = categoryValue;
     displayFilteredItems();
   });
   filterByPrice.addEventListener("change", (e)=> {
     priceValue = e.target.value;
-    filterByPriceMobile.value = priceValue;
-    displayFilteredItems();
-  });
-  
-  filterByCategoryMobile.addEventListener("change",(e)=> {
-    categoryValue = e.target.value;
-    filterByCategory.value = categoryValue;
-    displayFilteredItems();
-  });
-  filterByPriceMobile.addEventListener("change", (e)=> {
-    priceValue = e.target.value;
     filterByPrice.value = priceValue;
+    displayFilteredItems();
+  });
+  searchForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    searchValue = searchInput.value.toLowerCase();
+    displayFilteredItems();
+  });
+  searchInput.addEventListener("input", (e) => {
+    searchValue = e.target.value.toLowerCase();
     displayFilteredItems();
   });
 
@@ -90,19 +92,40 @@ const darkMode = document.getElementById("mode-switch");
 const img = document.getElementById("mode-switch-img");
 const body = document.getElementById("body");
 
-darkMode.addEventListener("click", () => {
-  toggleTheme();
-})
 function toggleTheme() {
   if(body.classList.contains("dark-mode")) {
     body.classList.remove("dark-mode");
     img.setAttribute("src", "./night-mode.png")
     img.setAttribute("alt", "dark-mode")
     darkMode.setAttribute("style", "background-color: rgba(0, 0, 0, 0.688);")
+    localStorage.setItem("theme", "light");  // Save to localStorage
   }else {
     body.classList.add("dark-mode");
     img.setAttribute("src", "./light-mode.png")
     img.setAttribute("alt", "light-mode")
     darkMode.setAttribute("style", "background-color: #83a000")
+    localStorage.setItem("theme", "dark");  // Save to localStorage
   }
 }
+
+function loadTheme() {
+  const savedTheme = localStorage.getItem("theme");
+  if(savedTheme === "dark") {
+    body.classList.add("dark-mode");
+    img.setAttribute("src", "./light-mode.png")
+    img.setAttribute("alt", "light-mode")
+    darkMode.setAttribute("style", "background-color: #83a000")
+  } else {
+    body.classList.remove("dark-mode");
+    img.setAttribute("src", "./night-mode.png")
+    img.setAttribute("alt", "dark-mode")
+    darkMode.setAttribute("style", "background-color: rgba(0, 0, 0, 0.688);")
+  }
+}
+
+// Load theme on page load
+loadTheme();
+
+darkMode.addEventListener("click", () => {
+  toggleTheme();
+})

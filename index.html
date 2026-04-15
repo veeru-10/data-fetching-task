@@ -17,52 +17,34 @@
         <img src="./logo.png" alt="logo" width="40x">
         <span class="logo">Foodie Fix</span>
       </a>
-      <div class="d-none d-lg-block">
-        <select class="dropdown mx-2" id="foodItemsDropdown">
-          <option value="all">all</option>
-          <option value="pasta">pasta</option>
-          <option value="drink">drinks</option>
-          <option value="dessert">dessert</option>
-          <option value="sandwich">sandwich</option>
-          <option value="wrap">wrap</option>
-          <option value="snacks">snacks</option>
-          <option value="mexican">mexican</option>
-          <option value="chinese">chinese</option>
-        </select>
-        <select class="dropdown mx-2" id="foodPriceDropdown">
-          <option value="all">all</option>
-          <option value="0-100">0-100</option>
-          <option value="100-200">100-200</option>
-          <option value="200-300">200-300</option>
-          <option value="300-400">300-400</option>
-        </select>
-      </div>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon text-dark"></span>
       </button>
-      <div class="collapse navbar-collapse flex-lg-grow-0" id="navbarSupportedContent">
-        <select class="collapse-dropdown d-lg-none d-block w-100 my-3 py-2" id="foodItemsDropdownMobile">
-          <option value="all">all</option>
-          <option value="pasta">pasta</option>
-          <option value="drink">drinks</option>
-          <option value="dessert">dessert</option>
-          <option value="sandwich">sandwich</option>
-          <option value="wrap">wrap</option>
-          <option value="snacks">snacks</option>
-          <option value="mexican">mexican</option>
-          <option value="chinese">chinese</option>
-        </select>
-        <select class="collapse-dropdown d-lg-none d-block w-100 my-3 py-2" id="foodPriceDropdownMobile">
-          <option value="all">all</option>
-          <option value="0-100">0-100</option>
-          <option value="100-200">100-200</option>
-          <option value="200-300">200-300</option>
-          <option value="300-400">300-400</option>
-        </select>
-        <form class="d-flex my-3" role="search" id="searchForm">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="searchInput"/>
-          <button class="btn btn-outline-dark" type="submit">Search</button>
-        </form>
+      <div class="collapse navbar-collapse d-lg-flex align-items-lg-center w-100" id="navbarSupportedContent">
+        <div class="d-lg-flex justify-content-lg-evenly align-items-lg-center w-100">
+          <select class="collapse-dropdown w-100 my-3 me-lg-2" id="foodItemsDropdown">
+            <option value="all">all</option>
+            <option value="pasta">pasta</option>
+            <option value="drink">drinks</option>
+            <option value="dessert">dessert</option>
+            <option value="sandwich">sandwich</option>
+            <option value="wrap">wrap</option>
+            <option value="snacks">snacks</option>
+            <option value="mexican">mexican</option>
+            <option value="chinese">chinese</option>
+          </select>
+          <select class="collapse-dropdown w-100 my-3 mx-lg-2 py-2" id="foodPriceDropdown">
+            <option value="all">all</option>
+            <option value="0-100">0-100</option>
+            <option value="100-200">100-200</option>
+            <option value="200-300">200-300</option>
+            <option value="300-400">300-400</option>
+          </select>
+          <form class="d-flex my-3 ms-lg-2 flex-grow-1" role="search" id="searchForm">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="searchInput"/>
+            <button class="btn btn-outline-dark" type="submit">Search</button>
+          </form>
+        </div>
       </div>
     </div>
   </nav>

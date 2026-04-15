@@ -15,7 +15,7 @@ body {
   color: #d75d00;
   font-weight: bold;
 }
-.dropdown, .collapse-dropdown {
+.collapse-dropdown {
   border: 1px solid rgb(255, 255, 255);
   outline: none;
   border-radius: .2rem;
@@ -65,4 +65,21 @@ body {
 .dark-mode {
   background-color: black;
   color: #C3CC9B;
+}
+
+@media (min-width: 992px) {
+  .collapse-dropdown {
+    width: 100% !important;
+    height: 38px;
+  }
+
+  #searchForm {
+    width: 100%;
+    flex-grow: 0;
+  }
+
+  #searchForm input,
+  #searchForm button {
+    height: 38px;
+  }
 }
